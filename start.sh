@@ -41,9 +41,10 @@ start_node(){
     read -p "Eth Amount To Bridge：" BRIDGE_AMOUNT
     read -p "Data for Base to OP：" DATA_BRIDGE_BASE_TO_OP
     read -p "Data for OP to Base：" DATA_BRIDGE_OP_TO_BASE
-    read -p "Base Sepolia RPC：" BASE_SEPOLIA_RPC
-    BASE_SEPOLIA_RPC="${BASE_SEPOLIA_RPC:-https://opt-sepolia.g.alchemy.com/v2/-VC9eV1WUDDNqcGzeKGKZ5d8E1YFb4Tt}"
-    read -p "OP Sepolia RPC：" OP_SEPOLIA_RPC
+    read -p "Base Sepolia RPC[選用默認按enter]：" BASE_SEPOLIA_RPC
+    BASE_SEPOLIA_RPC="${BASE_SEPOLIA_RPC:-https://base-sepolia.g.alchemy.com/v2/-VC9eV1WUDDNqcGzeKGKZ5d8E1YFb4Tt}"
+    read -p "OP Sepolia RPC[選用默認按enter]：" OP_SEPOLIA_RPC
+    OP_SEPOLIA_RPC="${OP_SEPOLIA_RPC:-https://opt-sepolia.g.alchemy.com/v2/-VC9eV1WUDDNqcGzeKGKZ5d8E1YFb4Tt}"
 
     tee .env > /dev/null <<EOF
     PRIVATE_KEY=$PRIVATE_KEY
