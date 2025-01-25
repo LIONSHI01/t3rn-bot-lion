@@ -60,18 +60,6 @@ EOF
  
 
 
-# 卸载节点
-uninstall_node() {
-}
-
-
-restart_node(){
-}
-
-
-view_logs(){
-}
-
 update_script(){
  wget -O plaza_helper.sh https://raw.githubusercontent.com/LIONSHI01/nodes_management/refs/heads/main/plaza/plaza_helper.sh && chmod +x plaza_helper.sh && ./plaza_helper.sh
 }
@@ -85,9 +73,6 @@ while true; do
     show_menu
     case $choice in
         1) start_node ;;
-        2) view_logs ;;
-        3) restart_node ;;
-        7) uninstall_node ;;
         0) update_script;;
         9) echo -e "${GREEN}退出程序${NC}"; exit 0 ;;
         *) echo -e "${RED}无效选项，请重新输入${NC}";;
