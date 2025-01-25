@@ -85,10 +85,10 @@ while true; do
     show_menu
     case $choice in
         1) start_node ;;
-        # 2) view_logs ;;
-        # 3) restart_node ;;
-        # 7) uninstall_node ;;
-        # 0) update_script;;
+        2) view_logs ;;
+        3) restart_node ;;
+        7) uninstall_node ;;
+        0) update_script;;
         9) echo -e "${GREEN}退出程序${NC}"; exit 0 ;;
         *) echo -e "${RED}无效选项，请重新输入${NC}";;
     esac
