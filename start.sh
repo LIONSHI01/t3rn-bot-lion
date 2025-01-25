@@ -54,6 +54,11 @@ start_node(){
     OP_SEPOLIA_RPC=$OP_SEPOLIA_RPC
 EOF
 
+    screen -dmS t3rn-batch-02
+    python3 -m venv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+    python bot.py
     
 }
 
