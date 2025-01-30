@@ -35,7 +35,6 @@ def clear_terminal():
 
 description = """
 自动桥接机器人  https://bridge.t1rn.io/
-操你麻痹Rambeboy,偷私钥🐶
 """
 
 # 每个链的颜色和符号
