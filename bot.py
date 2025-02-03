@@ -50,10 +50,8 @@ menu_color = '\033[95m'  # 菜单文本颜色
 
 # 每个网络的区块浏览器URL
 explorer_urls = {
-    'Base': 'https://base-sepolia.g.alchemy.com/v2/-VC9eV1WUDDNqcGzeKGKZ5d8E1YFb4Tt',
-    # 'Base': 'https://sepolia.base.org',
-    'OP Sepolia': 'https://opt-sepolia.g.alchemy.com/v2/-VC9eV1WUDDNqcGzeKGKZ5d8E1YFb4Tt',
-    # 'OP Sepolia': 'https://sepolia-optimism.etherscan.io/tx/',
+    'Base': 'https://sepolia.base.org',
+    'OP Sepolia': 'https://sepolia-optimism.etherscan.io/tx/',
     'BRN': 'https://brn.explorer.caldera.xyz/tx/'
 }
 
@@ -77,10 +75,17 @@ def check_balance(web3, my_address):
 def send_bridge_transaction(web3, account, my_address, data, network_name):
     nonce = web3.eth.get_transaction_count(my_address, 'pending')
     value_in_ether = BRIDGE_AMOUNT
+    print(BRIDGE_AMOUNT)
     value_in_wei = web3.to_wei(value_in_ether, 'ether')
 
     try:
         gas_estimate = web3.eth.estimate_gas({
+            'to': networks[network_name]['contract_address'],
+            'from': my_address,
+            'data': data,
+            'value': value_in_wei
+        })
+        print({
             'to': networks[network_name]['contract_address'],
             'from': my_address,
             'data': data,
