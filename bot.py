@@ -75,7 +75,6 @@ def check_balance(web3, my_address):
 def send_bridge_transaction(web3, account, my_address, data, network_name):
     nonce = web3.eth.get_transaction_count(my_address, 'pending')
     value_in_ether = BRIDGE_AMOUNT
-    print(BRIDGE_AMOUNT)
     value_in_wei = web3.to_wei(value_in_ether, 'ether')
 
     try:
@@ -85,12 +84,12 @@ def send_bridge_transaction(web3, account, my_address, data, network_name):
             'data': data,
             'value': value_in_wei
         })
-        print({
-            'to': networks[network_name]['contract_address'],
-            'from': my_address,
-            'data': data,
-            'value': value_in_wei
-        })
+        # print({
+        #     'to': networks[network_name]['contract_address'],
+        #     'from': my_address,
+        #     'data': data,
+        #     'value': value_in_wei
+        # })
         gas_limit = gas_estimate + 50000  # 增加安全边际
     except Exception as e:
         print(f"估计gas错误: {e}")
@@ -156,7 +155,7 @@ def process_network_transactions(network_name, bridges, chain_data, successful_t
         time.sleep(5)  # 等待 5 秒后重试
         web3 = Web3(Web3.HTTPProvider(chain_data['rpc_url']))
 
-    print(f"成功连接到 {network_name}")
+    # print(f"成功连接到 {network_name}")
 
     for bridge in bridges:
         for i, private_key in enumerate(private_keys):
