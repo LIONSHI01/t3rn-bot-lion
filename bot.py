@@ -134,7 +134,7 @@ def send_bridge_transaction(web3, account, my_address, data, network_name):
         print(f"🗳️  区块号: {tx_receipt['blockNumber']}")
         print(f"💰 ETH余额: {formatted_balance} ETH")
         brn_balance = get_brn_balance(Web3(Web3.HTTPProvider(
-            'https://brn.rpc.caldera.xyz/http')), my_address)
+            'https://b2n.rpc.caldera.xyz/http')), my_address)
         print(f"🔵 BRN余额: {brn_balance} BRN")
         print(f"🔗 区块浏览器链接: {explorer_link}\n{reset_color}")
 
