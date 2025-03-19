@@ -52,7 +52,7 @@ menu_color = '\033[95m'  # 菜单文本颜色
 explorer_urls = {
     'Base': 'https://sepolia.base.org',
     'OP Sepolia': 'https://sepolia-optimism.etherscan.io/tx/',
-    'BRN': 'https://brn.explorer.caldera.xyz/tx/'
+    'BRN': 'https://b2n.explorer.caldera.xyz/tx/'
 }
 
 # 获取BRN余额的函数
@@ -234,7 +234,7 @@ def main():
         # 如果余额不足 BRIDGE_AMOUNT ETH，切换到另一个链
         if balance < BRIDGE_AMOUNT:
             print(
-                f"{chain_symbols[current_network]}{current_network}余额不足 BRIDGE_AMOUNT ETH，切换到 {alternate_network}{reset_color}")
+                f"{chain_symbols[current_network]}{current_network}余额不足 {BRIDGE_AMOUNT} ETH，切换到 {alternate_network}{reset_color}")
             current_network, alternate_network = alternate_network, current_network  # 交换链
 
         # 处理当前链的交易
