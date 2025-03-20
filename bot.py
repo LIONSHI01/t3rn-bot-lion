@@ -84,19 +84,14 @@ def send_bridge_transaction(web3, account, my_address, data, network_name):
             'data': data,
             'value': value_in_wei
         })
-        # print({
-        #     'to': networks[network_name]['contract_address'],
-        #     'from': my_address,
-        #     'data': data,
-        #     'value': value_in_wei
-        # })
-        gas_limit = gas_estimate + 50000  # 增加安全边际
+
+        gas_limit = gas_estimate + 80000  # 增加安全边际
     except Exception as e:
         print(f"估计gas错误: {e}")
         return None
 
     base_fee = web3.eth.get_block('latest')['baseFeePerGas']
-    priority_fee = web3.to_wei(5, 'gwei')
+    priority_fee = web3.to_wei(80, 'gwei')
     max_fee = base_fee + priority_fee
 
     transaction = {
@@ -187,7 +182,7 @@ def process_network_transactions(network_name, bridges, chain_data, successful_t
                 print("\n")
 
             # 随机等待 30 到 60 秒
-            wait_time = random.uniform(30, 40)
+            wait_time = random.uniform(60, 100)
             print(f"⏳ 等待 {wait_time:.2f} 秒后继续...\n")
             time.sleep(wait_time)  # 随机延迟时间
 
