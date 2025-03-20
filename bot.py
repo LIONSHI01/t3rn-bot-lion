@@ -85,13 +85,13 @@ def send_bridge_transaction(web3, account, my_address, data, network_name):
             'value': value_in_wei
         })
 
-        gas_limit = gas_estimate + 80000  # 增加安全边际
+        gas_limit = gas_estimate + 50000  # 增加安全边际
     except Exception as e:
         print(f"估计gas错误: {e}")
         return None
 
     base_fee = web3.eth.get_block('latest')['baseFeePerGas']
-    priority_fee = web3.to_wei(80, 'gwei')
+    priority_fee = web3.to_wei(5, 'gwei')
     max_fee = base_fee + priority_fee
 
     transaction = {
