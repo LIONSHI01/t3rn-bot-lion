@@ -1,3 +1,4 @@
 __pycache__/
 t3rn-env/
 .env
+.env.bak
